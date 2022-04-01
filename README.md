@@ -14,6 +14,12 @@ npm i
 npm run dev
 ```
 
+#### Run test
+
+```html
+npm run test
+```
+
 ### login data
 
 ```html
