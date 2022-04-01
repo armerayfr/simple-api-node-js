@@ -12,11 +12,10 @@ const {
 } = require("./utils/errorHandler");
 
 const app = express();
+
 app.use(httpLogger);
 app.use(cors());
 app.use(express.json());
-
-const PORT = 3200;
 
 app.post("/login", (req, res, next) => {
   //static data
@@ -87,4 +86,4 @@ process.on("uncaughtException", (error) => {
 app.use(logError);
 app.use(returnError);
 
-app.listen(PORT, () => logger.info(`Express.js listening on port ${PORT}`));
+module.exports = app;
