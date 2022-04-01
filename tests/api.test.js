@@ -23,14 +23,19 @@ test("should invalid username/password", async () => {
 
 test("should return payload jobs", async () => {
   const response = await request(app).get("/jobs").expect(200);
+  expect(response.body).not.toBeNull();
 });
 
 test("should return payload job", async () => {
   const response = await request(app)
     .get("/job/f4a7c47f-c8ac-49fa-b15b-4ab37bfd2307")
     .expect(200);
+
+  expect(response.body.id).not.toBeUndefined();
 });
 
 test("should return not found by not existing id", async () => {
   const response = await request(app).get("/job/RANDOMID").expect(404);
+
+  expect(response.body.id).toBeUndefined();
 });
